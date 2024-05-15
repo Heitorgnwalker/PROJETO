@@ -1,0 +1,90 @@
+:root {
+    --color-aqua: aqua;
+    --color-chartreuse: chartreuse;
+    --color-chocolate: chocolate;
+}
+
+html {
+    background: -o-linear-gradient(to bottom right, blue, pink);
+}
+
+.Baby-yoda {
+    width: 6em;
+    height: 4em;
+    border-radius: 3em 3em 4.5em 4.5em;
+    background: var(--color-aqua);
+    position: relative;
+
+    background-image: 
+        radial-gradient(
+            circle at 1.5em,
+            #fff,
+            #fff .25em, 
+            transparent .3em
+        ),
+        radial-gradient(
+            circle at 1em,
+            #000,
+            #000 .9em,
+            transparent 1em
+        );
+
+    background-position: 0.6em 0.35em, 0.7em 0.6em;
+    background-size: 2.75em 2em;
+    background-repeat: repeat-x;
+
+    animation: eyes 2s cubic-bezier(0.8, .02, .2, .96) infinite alternate;
+}
+
+@keyframes eyes {
+    to {
+        background-size: 2.75em 2em;
+    }
+}
+
+.Baby-yoda::before, .Baby-yoda::after {
+    content: '';
+    display: block;
+    width: 5em;
+    height: 1.5em;
+    background: var(--color-chocolate);
+    border-top: solid .5em var(--color-aqua);
+    position: absolute;
+    top: 0.5em;
+    margin: 0 -1em;
+    z-index: -1;
+    border-radius: 2em 1em;
+
+    animation: ears 2s cubic-bezier(0.8, .02, .2, .96) infinite alternate;
+}
+
+@keyframes ears {
+    to {
+        transform: rotate(var(--rotate));
+    }
+}
+
+.Baby-yoda::before {
+    --rotate: 20deg;
+    transform-origin: center right;
+    right: 100%;
+    border-bottom-left-radius: 9em 4em;
+}
+
+.Baby-yoda::after {
+    --rotate: -20deg;
+    transform-origin: center left;
+    left: 100%;
+    border-bottom-right-radius: 9em 4em;
+}
+
+html {
+    height: 100%;
+    display: flex;
+}
+
+body {
+    margin: auto;
+}
+
+
